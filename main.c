@@ -3,7 +3,6 @@
 
 int modularExponentiation(int exponent, int base, int modulo)
 {
-    printf("Starting function call with exponent=%d, base=%d, modulo=%d\n", exponent, base, modulo);
     if (exponent == 1)
     {
         return base % modulo;
@@ -17,7 +16,6 @@ int modularExponentiation(int exponent, int base, int modulo)
         result *= base;
         result = result % modulo;
     }
-    printf("Result is %d\n", result);
 
     return result;
 }
