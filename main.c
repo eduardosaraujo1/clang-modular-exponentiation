@@ -19,12 +19,45 @@ long long modularExponentiation(long long exponent, long long base, long long mo
     return result;
 }
 
+long long askPositiveNumber(char prompt[])
+{
+    long long response = 0;
+
+    // read response
+    int valid = 0;
+    do
+    {
+        printf("%s", prompt);
+
+        if (scanf("%lld", &response) == 1 && response > 0)
+        {
+            valid = 1;
+        }
+        else
+        {
+            puts("Valor inválido. Tente novamente");
+            int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF)
+                ;
+        }
+    } while (!valid);
+
+    return response;
+}
+
 int main()
 {
     // Ask user what base is
+    long long base = askPositiveNumber("Calculation base: ");
     // Ask user what modulo is
+    long long modulo = askPositiveNumber("Calculation modulo: ");
     // While true, accept user input on the exponent, and
-    long long result = modularExponentiation(5, 50, 101);
-
-    printf("Final Response: %lld\n", result);
+    long long result;
+    long long exponent;
+    while (1)
+    {
+        exponent = askPositiveNumber("Type in exponent: ");
+        printf("Result: %lld\n", result);
+    }
+    // long long result = modularExponentiation(5, 50, 101);
 }
