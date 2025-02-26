@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int modularExponentiation(int exponent, int base, int modulo)
+long long modularExponentiation(long long exponent, long long base, long long modulo)
 {
     if (exponent == 1)
     {
@@ -13,8 +13,7 @@ int modularExponentiation(int exponent, int base, int modulo)
 
     if (exponent % 2 == 1)
     {
-        result *= base;
-        result = result % modulo;
+        result = (result * base) % modulo;
     }
 
     return result;
@@ -22,7 +21,10 @@ int modularExponentiation(int exponent, int base, int modulo)
 
 int main()
 {
-    int result = modularExponentiation(5, 50, 101);
+    // Ask user what base is
+    // Ask user what modulo is
+    // While true, accept user input on the exponent, and
+    long long result = modularExponentiation(5, 50, 101);
 
-    printf("Final Response: %d\n", result);
+    printf("Final Response: %lld\n", result);
 }
