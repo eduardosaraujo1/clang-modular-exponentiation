@@ -47,11 +47,8 @@ long long askPositiveNumber(char prompt[])
 
 int main()
 {
-    // Ask user what base is
     long long base = askPositiveNumber("Calculation base: ");
-    // Ask user what modulo is
     long long modulo = askPositiveNumber("Calculation modulo: ");
-    // While true, accept user input on the exponent, and
     long long result;
     long long exponent;
     while (1)
@@ -59,5 +56,4 @@ int main()
         exponent = askPositiveNumber("Type in exponent: ");
         printf("Result: %lld\n", result);
     }
-    // long long result = modularExponentiation(5, 50, 101);
 }
