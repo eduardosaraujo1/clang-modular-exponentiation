@@ -9,8 +9,8 @@ int modularExponentiation(int exponent, int base, int modulo)
         return base % modulo;
     }
 
-    int expo = modularExponentiation(exponent / 2, base, modulo);
-    int result = (expo * expo) % modulo;
+    long long expo = modularExponentiation(exponent / 2, base, modulo);
+    long long result = (expo * expo) % modulo;
 
     if (exponent % 2 == 1)
     {
