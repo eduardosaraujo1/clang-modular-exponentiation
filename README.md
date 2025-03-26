@@ -1,12 +1,13 @@
 ### Descrição Geral
 
 <pre>
-1. Perguntar para o usuário qual é a base da exponenciação e guarda-lo na variável "base"
-2. Perguntar para o usuário qual é o expoente e guarda-lo na variável "expoente"
-3. Perguntar para o usuário qual é o módulo e guarda-lo na variável "modulo"
-4. Aplique a operação módulo na base para reduzir o tamanho da base e otimizar o calculo
-5. Faça a operação de exponenciação uma multiplicação de cada vez, aplicando o operador modulo em cada etapa para melhor otimizar o código
-6. Escreva na tela o resultado, utilizando o prefixo "Resultado: "
+1. Pergunte ao usuário qual é a base da exponenciação e armazene a resposta na variável "base".
+2. Pergunte ao usuário qual é o expoente e armazene a resposta na variável "expoente".
+3. Pergunte ao usuário qual é o valor do módulo e armazene a resposta na variável "modulo".
+4. Aplique a operação de módulo à base para reduzi-la, otimizando o cálculo da exponenciação.
+5. Obtenha o resultado realizando a operação de exponenciação utilizando multiplicações sucessivas enquanto aplica o operador módulo em cada etapa, a fim de otimizar o desempenho do calculo.
+6. Exiba o resultado na tela, utilizando o prefixo "Resultado: ".
+
 </pre>
 
 ### Pseudocódigo
