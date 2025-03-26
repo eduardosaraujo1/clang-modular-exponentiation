@@ -21,7 +21,9 @@ int main()
     {
         accumulator = (accumulator * base) % modulus;
     }
-    printf("%lld", accumulator);
+
+    // PRINT RESULT
+    printf("Resultado: %lld", accumulator);
 
     return 0;
 }
