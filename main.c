@@ -5,8 +5,8 @@ int main()
     long long base;
     long long exponent;
     long long modulus;
+    long long result;
 
-    // USER INPUT
     printf("Base: ");
     scanf("%lld", &base);
     printf("Expoente: ");
@@ -15,15 +15,15 @@ int main()
     scanf("%lld", &modulus);
     printf("\n");
 
-    // EVALUATE base^exponent % modulus
-    long long accumulator = 1;
+    result = 1;
+    base = base % modulus;
+
     for (long long i = 0; i < exponent; i++)
     {
-        accumulator = (accumulator * base) % modulus;
+        result = (result * base) % modulus;
     }
 
-    // PRINT RESULT
-    printf("Resultado: %lld", accumulator);
+    printf("Resultado: %lld", result);
 
     return 0;
 }
