@@ -7,6 +7,8 @@ int main()
     long long modulus;
     long long result;
 
+    puts("Aviso: valores depois da vírgula serão ignorados e negativos se tornarão positivos");
+
     printf("Base: ");
     scanf("%lld", &base);
     printf("Expoente: ");
@@ -14,6 +16,11 @@ int main()
     printf("Módulo: ");
     scanf("%lld", &modulus);
     printf("\n");
+
+    // remover negativos
+    base = base >= 0 ? base : -base;
+    exponent = exponent >= 0 ? exponent : -exponent;
+    modulus = modulus >= 0 ? modulus : -modulus;
 
     result = 1;
     base = base % modulus;
