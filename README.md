@@ -31,6 +31,18 @@ INICIO
     base = base % modulo
     contador = 0
 
+    SE base < 0 ENTAO
+        base = -base
+    FIM SE
+
+    SE expoente < 0 ENTAO
+        expoente = -expoente
+    FIM SE
+
+    SE modulo < 0 ENTAO
+        modulo = -modulo
+    FIM SE
+
     ENQUANTO contador < expoente
         resultado = (resultado * base) % modulo
         contador = contador + 1
