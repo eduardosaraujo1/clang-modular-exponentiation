@@ -3,68 +3,61 @@
 #include <string.h>
 #include <ctype.h>
 
-#define BUFFER_LEN 100
+int read_line(char buffer[], int size)
+{
+    memset(buffer, 0, size);
+    return fgets(buffer, size, stdin) != NULL;
+}
+
+void extract_digits(const char *input, char *output)
+{
+    int j = 0;
+    // memset(digits, 0, sizeof(digits));
+    for (int i = 0; input[i] != '\0'; i++)
+    {
+        if (isdigit(input[i]))
+        {
+            output[j++] = input[i];
+        }
+    }
+    output[j] = '\0';
+}
+
+int parse_positive_long_long(const char *number, long long *value)
+{
+    if (number[0] == '\0')
+        return 0; // number é vazio
+    *value = strtoll(number, NULL, 10);
+    return *value > 0; // zero não é positivo
+}
 
 void ler_inteiro_positivo(char prompt[], long long *value)
 {
-    char buffer[BUFFER_LEN];
-    char digits[BUFFER_LEN];
+    const int buffer_len = 100;
+    char buffer[buffer_len];
+    char digits[buffer_len];
 
-    int success = 0;
-
-    while (success == 0)
+    while (1)
     {
         // print prompt
         printf("%s", prompt);
 
         // read answer from user
-        memset(buffer, 0, sizeof(buffer));
-        if (fgets(buffer, BUFFER_LEN, stdin) == NULL)
+        if (!read_line(buffer, buffer_len))
         {
             printf("Ocorreu um erro ao ler sua entrada. Tente novamente\n");
             continue;
         }
 
-        // replace \n with \0
-        for (int i = 0; buffer[i] != '\0'; i++)
-        {
-            if (buffer[i] == '\n')
-            {
-                buffer[i] = '\0';
-                break;
-            }
-        }
+        extract_digits(buffer, digits);
 
-        // remove invalid characters
-        int j = 0;
-
-        memset(digits, 0, sizeof(digits));
-        for (int i = 0; buffer[i] != '\0'; i++)
+        if (!parse_positive_long_long(digits, value))
         {
-            if (isdigit(buffer[i]))
-            {
-                digits[j++] = buffer[i];
-            }
-        }
-
-        // if j is null, probably the string had no numbers
-        if (j <= 0)
-        {
-            printf("O valor digitado deve ser um número inteiro positivo. Por favor tente novamente.\n");
+            printf("O valor digitado deve ser um número inteiro positivo não zero. Por favor tente novamente.\n");
             continue;
         }
 
-        // parse digits to long long
-        *value = strtoll(digits, NULL, 10);
-
-        if (*value <= 0)
-        {
-            printf("O valor digitado não pode ser 0. Por favor tente novamente.\n");
-            continue;
-        }
-
-        // end the loop
-        success = 1;
+        break;
     }
 }
 
